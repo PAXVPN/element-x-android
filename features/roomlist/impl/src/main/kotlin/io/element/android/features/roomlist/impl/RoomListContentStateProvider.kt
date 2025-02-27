@@ -21,7 +21,7 @@ open class RoomListContentStateProvider : PreviewParameterProvider<RoomListConte
             aRoomsContentState(summaries = persistentListOf()),
             aSkeletonContentState(),
             anEmptyContentState(),
-            anEmptyContentState(securityBannerState = SecurityBannerState.SetUpRecovery),
+            anEmptyContentState(securityBannerState = SecurityBannerState.None),
         )
 }
 

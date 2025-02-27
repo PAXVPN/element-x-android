@@ -67,11 +67,11 @@ class DefaultAnalyticsService @Inject constructor(
 
     override suspend fun setDidAskUserConsent() {
         Timber.tag(analyticsTag.value).d("setDidAskUserConsent()")
-        analyticsStore.setDidAskUserConsent()
+        analyticsStore.setDidAskUserConsent(true)
     }
 
     override suspend fun reset() {
-        analyticsStore.setDidAskUserConsent(false)
+        analyticsStore.setDidAskUserConsent(true)
     }
 
     override fun getAnalyticsId(): Flow<String> {

@@ -8,7 +8,8 @@
 package io.element.android.appconfig
 
 object AuthenticationConfig {
-    const val MATRIX_ORG_URL = "https://matrix.org"
+//    const val MATRIX_ORG_URL = "https://matrix.org"
+const val MATRIX_ORG_URL = "https://matrix.pax.chat"
 
     /**
      * URL with some docs that explain what's sliding sync and how to add it to your home server.

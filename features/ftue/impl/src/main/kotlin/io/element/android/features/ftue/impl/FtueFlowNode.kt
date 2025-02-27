@@ -88,15 +88,15 @@ class FtueFlowNode @AssistedInject constructor(
             moveToNextStepIfNeeded()
         })
 
-        analyticsService.didAskUserConsent()
-            .distinctUntilChanged()
-            .onEach { moveToNextStepIfNeeded() }
-            .launchIn(lifecycleScope)
-
-        ftueState.isVerificationStatusKnown
-            .filter { it }
-            .onEach { moveToNextStepIfNeeded() }
-            .launchIn(lifecycleScope)
+//        analyticsService.didAskUserConsent()
+//            .distinctUntilChanged()
+//            .onEach { moveToNextStepIfNeeded() }
+//            .launchIn(lifecycleScope)
+//
+//        ftueState.isVerificationStatusKnown
+//            .filter { it }
+//            .onEach { moveToNextStepIfNeeded() }
+//            .launchIn(lifecycleScope)
     }
 
     override fun resolve(navTarget: NavTarget, buildContext: BuildContext): Node {
