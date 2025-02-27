@@ -50,7 +50,7 @@ class DefaultFtueService @Inject constructor(
      * This flow emits true when the FTUE flow is ready to be displayed.
      * In this case, the FTUE flow is ready when the session verification status is known.
      */
-    private val isVerificationStatusKnown = sessionVerificationService.sessionVerifiedStatus
+    val isVerificationStatusKnown = sessionVerificationService.sessionVerifiedStatus
         .map { it != SessionVerifiedStatus.Unknown }
         .distinctUntilChanged()
 
@@ -61,16 +61,16 @@ class DefaultFtueService @Inject constructor(
         }
     }
 
-//    init {
-//        sessionVerificationService.sessionVerifiedStatus
-//            .onEach { updateState() }
-//            .launchIn(sessionCoroutineScope)
-//
-//        analyticsService.didAskUserConsent()
-//            .distinctUntilChanged()
-//            .onEach { updateState() }
-//            .launchIn(sessionCoroutineScope)
-//    }
+    init {
+        sessionVerificationService.sessionVerifiedStatus
+            .onEach { updateState() }
+            .launchIn(sessionCoroutineScope)
+
+        analyticsService.didAskUserConsent()
+            .distinctUntilChanged()
+            .onEach { updateState() }
+            .launchIn(sessionCoroutineScope)
+    }
 
     suspend fun getNextStep(currentStep: FtueStep? = null): FtueStep? =
         when (currentStep) {
