@@ -132,23 +132,23 @@ private fun EmptyView(
             },
             modifier = Modifier.align(Alignment.Center),
         )
-        Box {
-            when (state.securityBannerState) {
-                SecurityBannerState.SetUpRecovery -> {
-                    SetUpRecoveryKeyBanner(
-                        onContinueClick = onSetUpRecoveryClick,
-                        onDismissClick = { eventSink(RoomListEvents.DismissBanner) },
-                    )
-                }
-                SecurityBannerState.RecoveryKeyConfirmation -> {
-                    ConfirmRecoveryKeyBanner(
-                        onContinueClick = onConfirmRecoveryKeyClick,
-                        onDismissClick = { eventSink(RoomListEvents.DismissBanner) },
-                    )
-                }
-                else -> Unit
-            }
-        }
+//        Box {
+//            when (state.securityBannerState) {
+//                SecurityBannerState.SetUpRecovery -> {
+//                    SetUpRecoveryKeyBanner(
+//                        onContinueClick = onSetUpRecoveryClick,
+//                        onDismissClick = { eventSink(RoomListEvents.DismissBanner) },
+//                    )
+//                }
+//                SecurityBannerState.RecoveryKeyConfirmation -> {
+//                    ConfirmRecoveryKeyBanner(
+//                        onContinueClick = onConfirmRecoveryKeyClick,
+//                        onDismissClick = { eventSink(RoomListEvents.DismissBanner) },
+//                    )
+//                }
+//                else -> Unit
+//            }
+//        }
     }
 }
 
@@ -207,7 +207,7 @@ private fun RoomsViewList(
         // FAB height is 56dp, bottom padding is 16dp, we add 8dp as extra margin -> 56+16+8 = 80
         contentPadding = PaddingValues(bottom = 80.dp)
     ) {
-        when (state.securityBannerState) {
+/*        when (state.securityBannerState) {
             SecurityBannerState.SetUpRecovery -> {
                 item {
                     SetUpRecoveryKeyBanner(
@@ -230,7 +230,7 @@ private fun RoomsViewList(
                 }
             }
         }
-
+*/
         // Note: do not use a key for the LazyColumn, or the scroll will not behave as expected if a room
         // is moved to the top of the list.
         itemsIndexed(

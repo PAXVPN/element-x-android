@@ -103,14 +103,14 @@ class DefaultFtueService @Inject constructor(
         }
 
     private fun isSessionVerificationStateReady(): Boolean {
-        return sessionVerificationService.sessionVerifiedStatus.value != SessionVerifiedStatus.Unknown
+        return sessionVerificationService.sessionVerifiedStatus.value == SessionVerifiedStatus.Verified
     }
 
     private suspend fun isSessionNotVerified(): Boolean {
         // Wait until the session verification status is known
         isVerificationStatusKnown.filter { it }.first()
 
-        return sessionVerificationService.sessionVerifiedStatus.value == SessionVerifiedStatus.NotVerified && !canSkipVerification()
+        return sessionVerificationService.sessionVerifiedStatus.value == SessionVerifiedStatus.Verified && canSkipVerification()
     }
 
     private suspend fun canSkipVerification(): Boolean {
